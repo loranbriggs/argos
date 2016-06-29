@@ -1,0 +1,3 @@
+# set email address to send alerts to
+# EMAIL="your@email.add"
+EMAIL="argoswatchdog@gmail.com"
