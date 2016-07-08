@@ -38,7 +38,7 @@ echo "Hostname is $(hostname), moving on...."
 
 egrep "^$DEFAULT_USER" /etc/passwd >/dev/null
 if [ $? -eq 0 ]; then
-  echo "$DEFAULT_USER username detect on system, consider removing or chaning password to improve secruity"
+  echo "$DEFAULT_USER username detected on system, consider removing or changing password to improve secruity"
 fi
 
 read -p "Would you like to create a new user? (y/n)? " -n 1 -r reply
