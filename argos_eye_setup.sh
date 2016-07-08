@@ -12,6 +12,9 @@ DEFAULT_USER=pi
 apt-get update
 apt-get upgrade
 
+echo
+echo
+echo
 echo "Time to configure an Argos Eye Device!!!!!!!"
 
 ########################## Change Hostname ###########################
@@ -62,18 +65,6 @@ if [[ $reply =~ ^[Yy]$ ]]; then
   fi
 fi
 
-########################## Install Motion ###########################
-
-apt-get install -y motion
-
-wget https://raw.githubusercontent.com/loranbriggs/argos/master/motion-eye/motion.conf -O /etc/motion/motion.conf
-chmod +r /etc/motion/motion.conf
-mkdir -p /var/run/motion
-chmod 777 /var/run/motion
-
-# start on boot
-sed -i "s/no/yes/g" /etc/default/motion
-
 ########################### Configure WiFi ###########################
 
 read -p "Would you like to configure Wifi? (y/n)? " -n 1 -r reply
@@ -89,4 +80,19 @@ network={
 EOT
 fi
 
+########################## Install Motion ###########################
+
+apt-get install -y motion
+
+wget https://raw.githubusercontent.com/loranbriggs/argos/master/motion-eye/motion.conf -O /etc/motion/motion.conf
+chmod +r /etc/motion/motion.conf
+mkdir -p /var/run/motion
+chmod 777 /var/run/motion
+
+# start on boot
+sed -i "s/no/yes/g" /etc/default/motion
+
+##########################  DONE!!!!!!!!  ###########################
+
 echo "Hostname, user, motion, and wifi configure, reboot and you should be ready to go!"
+reboot
