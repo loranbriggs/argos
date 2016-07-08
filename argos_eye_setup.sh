@@ -12,6 +12,8 @@ DEFAULT_USER=pi
 apt-get update
 apt-get upgrade
 
+echo "Time to configure an Argos Eye Device!!!!!!!"
+
 ########################## Change Hostname ###########################
 host=$(hostname)
 
@@ -34,7 +36,7 @@ fi
 
 echo "Hostname is $(hostname), moving on...."
 
-########################## Change Username ###########################
+########################## Create User  ###########################
 
 egrep "^$DEFAULT_USER" /etc/passwd >/dev/null
 if [ $? -eq 0 ]; then
@@ -87,3 +89,4 @@ network={
 EOT
 fi
 
+echo "Hostname, user, motion, and wifi configure, reboot and you should be ready to go!"
