@@ -56,7 +56,7 @@ if [[ $reply =~ ^[Yy]$ ]]; then
     # add user to video group
     usermod -a -G video $username
     # add user to sudoers file
-    echo "$username ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers
+    echo "$username ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
   fi
 fi
 
@@ -66,6 +66,7 @@ apt-get install -y motion
 
 wget https://raw.githubusercontent.com/loranbriggs/argos/master/motion-eye/motion.conf -O /etc/motion/motion.conf
 chmod +r /etc/motion/motion.conf
+mkdir -p /var/run/motion
 chmod 777 /var/run/motion
 
 # start on boot
